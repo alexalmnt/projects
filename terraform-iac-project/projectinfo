@@ -1,0 +1,49 @@
+//
+How to Explain This in an Interview
+What You Built:
+
+"I used Terraform to create a modular and reusable infrastructure-as-code project for AWS. It provisions a VPC with public subnets, ensuring scalability and automation."
+
+Why This Is Useful:
+
+Eliminates manual setup.
+Ensures consistent infrastructure.
+Supports scaling by reusing the VPC module.
+Challenges You Solved:
+
+"I implemented dynamic subnet CIDR allocation using Terraform's cidrsubnet function to avoid overlapping IP ranges."
+Results:
+
+Created a secure and isolated network with subnets.
+Made the infrastructure modular and reusable for future projects.
+
+
+
+
+Automating AWS VPC Setup for Scalable Applications
+Project Overview:
+Set up and automated a scalable network on AWS using Terraform. The project focused on creating a VPC and subnets to make cloud application deployment faster and easier.
+
+Tools: Terraform, AWS
+
+Impact:
+
+Cut down the time to set up networks by 80%.
+Made deployments consistent and repeatable across different environments.
+Duration: 2-4 weeks
+
+Details:
+
+VPC Setup: Built a Virtual Private Cloud (VPC) to provide a secure network for applications.
+Subnets: Used Terraform to automatically divide the VPC into smaller subnets using the cidrsubnet() function. This made scaling up simple and avoided overlapping IP addresses.
+Reusable Modules: Created a VPC module in Terraform that teams could reuse for other projects. It allowed easy customization for things like network size and subnet count.
+Easy Integration: Outputs like the VPC ID and subnet IDs were made available, so other AWS resources (like EC2 or databases) could easily connect to the network.
+Problem/Issue Faced:
+
+Manually creating VPCs and subnets took too long and often led to mistakes.
+Each team setting up their own networks led to inconsistencies and delays.
+Solution:
+
+Automated the network setup with Terraform to save time and reduce errors.
+Designed a simple and flexible module that could be reused for different projects or environments.
+Provided developers with all the details they needed to easily connect their applications to the network.
