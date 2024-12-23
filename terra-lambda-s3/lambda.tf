@@ -85,7 +85,7 @@ resource "aws_iam_role_policy_attachment" "lambda_role_policy_attachment" {
 
 # Create an S3 bucket notification configuration
 resource "aws_s3_bucket_notification" "lambda_trigger" {
-    bucket = "inbound-bucket-custome"
+    bucket = "inbound-bucket-terra"
 
     lambda_function {
         lambda_function_arn = aws_lambda_function.my_lambda_function.arn
@@ -101,13 +101,13 @@ resource "aws_lambda_permission" "allow_s3_to_invoke_lambda" {
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.my_lambda_function.function_name
   principal     = "s3.amazonaws.com"
-  source_arn    = "arn:aws:s3:::inbound-bucket-custome"
+  source_arn    = "arn:aws:s3:::inbound-bucket-terra"
 }
 
 
 # Attach the IAM policy to the S3 bucket
 resource "aws_s3_bucket_policy" "s3_bucket_policy" {
-    bucket = "inbound-bucket-custome"
+    bucket = "inbound-bucket-terra"
 
     policy = jsonencode({
         "Version": "2012-10-17",
@@ -118,7 +118,7 @@ resource "aws_s3_bucket_policy" "s3_bucket_policy" {
                     "Service": "lambda.amazonaws.com"
                 },
                 "Action": "s3:GetObject",
-                "Resource": "arn:aws:s3:::inbound-bucket-custome/*"
+                "Resource": "arn:aws:s3:::inbound-bucket-terra/*"
             }
         ]
     })
