@@ -1,0 +1,4 @@
+variable "ami" {
+}
+variable "instancetype" {
+}
